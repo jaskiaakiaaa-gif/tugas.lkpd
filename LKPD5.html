@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan LKPD 5</title>
+</head>
+<body>
+    <script>
+        let nama = ['Keyla', 'Reisha', 'Aina', 'Arin', 'Aulia'];
+        for (let i = 0; i < nama.length; i++) {
+            document.write(nama[i] + "<br>");
+        }
+
+    
+        //menjumlahkan semua nilai
+        let nilai = ['60', '70', '80', '90', '100'];
+        let total = 0;
+        for (let i = 0; i < nilai; i++) {
+            total += nilai[i];
+        }
+        //menghitung rata rata
+        let rata = total / nilai.length;
+
+            document.write("nilai: " + nilai.join(", ") + "<br>");
+            document.write("Rata-rata: " + rata); 
+
+    //lebih cepat, mudag dihapus, menambahkan, dan menggantu element array
+    //bisa menggunakan push(), unshift(), splice()
+    </script>
+</body>
+</html>
