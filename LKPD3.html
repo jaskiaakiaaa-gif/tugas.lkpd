@@ -8,16 +8,18 @@
 
 <body>
     <script>
-       let total = 0;
-for (let i = 1; i <= 10; i++) {
-    total = total + i;
+        for (let i = 1; i <= 10; i++) {
+    console.log(i);
+    let hasil1 = i + ", ";
 }
-alert("Hasil penjumlahannya adalah " + total);
 
-for (let i = 2; i <= 20; i += 2) {
+       for (let i = 2; i <= 20; i += 2) {
     document.write(i + ", ");
 }
-    
+
+    //Gunakan for jika sudah tahu jumlah perulangannya.
+//Gunakan while jika jumlah perulangannya tidak pasti, misalnya sampai user memasukkan angka yang benar
+//Mudah diubah, menghemat waktu
     </script>
 </body>
 </html>
