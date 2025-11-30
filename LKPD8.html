@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation  </title>
+</head>
+<body>
+        <input type="text" id="nama" placeholder="Masukkan nama">
+<input type="text" id="email" placeholder="Masukkan email">
+<input type="password" id="password" placeholder="Masukkan password">
+<p id="feedback"></p>
+
+<button onclick="validasi()">Daftar</button>
+
+    <script>
+function validasi() {
+  let nama = document.getElementById("nama").value;
+  let email = document.getElementById("email").value;
+  let pass = document.getElementById("password").value;
+
+  let feedback = document.getElementById("feedback");
+
+  // Validasi password minimal 8 karakter
+  if (pass.length < 8) {
+    feedback.innerHTML = "❌ Password harus minimal 8 karakter!";
+    feedback.style.color = "red";
+    return;
+  }
+
+  // Validasi email harus mengandung @
+  if (!email.includes("@")) {
+    feedback.innerHTML = "❌ Email tidak valid!";
+    feedback.style.color = "red";
+    return;
+  }
+
+  // Jika semua valid
+  feedback.innerHTML = "✅ Pendaftaran berhasil!";
+  feedback.style.color = "green";
+}
+
+//karena validasi memastikan data yang dikirim agar tidak salah
+//pesan tetap muncul di dalam halaman sehingga mudah di baca
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+</head>
+<body>
+    <p id="paragraf">Sembunyikan paragraf ini</p>
+    <button onclick="sembunyikan()">Sembunyikan</button>
+
+        <input type="text" oninput="tampil(this.value)" placeholder="Ketik sesuatu...">
+        <p id="output"></p>
+    <script>
+    function sembunyikan() {
+     document.getElementById("Paragraf").innerHTML = "none";
+     }   
+        
+        function tampil(teks) {
+            document.getElementById("output").innerText = teks;
+        }
+
+//onclick yaitu event yangterjadi saat elemen diklik, sedangkan onmouseover event yg terjadi saat kursor diarahkan ke atas element
+//karena event memungkinkan halaman web merespons tindakan pengguna, tanpa event halaman tidak bisa berinteraksi dengan user
+    </script>
+</body>
+</html>
