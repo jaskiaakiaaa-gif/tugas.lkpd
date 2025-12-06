@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tebak Angka</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 25px;
+        }
+        input, button {
+            padding: 8px;
+            margin-top: 5px;
+        }
+        #hasil {
+            margin-top: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>🎮 Game Tebak Angka 1–10</h2>
+    <p>Masukkan angka antara 1 sampai 10.</p>
+
+    <input type="number" id="tebakan" placeholder="Masukkan angka">
+    <button onclick="cekTebakan()">Coba!</button>
+    <button onclick="resetGame()">Reset</button>
+
+    <p id="kesempatan"></p>
+    <p id="hasil"></p>
+
+    <script>
+        let angkaBenar = Math.floor(Math.random() * 10) + 1;  
+        let sisaKesempatan = 3;
+
+        tampilkanKesempatan();
+
+        function cekTebakan() {
+            let input = document.getElementById("tebakan").value;
+
+            if (input === "") {
+                alert("Masukkan angka terlebih dahulu!");
+                return;
+            }
+
+            let tebakan = parseInt(input);
+            
+            if (tebakan < 1 || tebakan > 10) {
+                alert("Angka harus dari 1 sampai 10!");
+                return;
+            }
+
+            sisaKesempatan--;
+
+            if (tebakan === angkaBenar) {
+                document.getElementById("hasil").innerHTML =
+                    "🎉 SELAMAT! Tebakan kamu BENAR!";
+                disableGame();
+            } else if (sisaKesempatan > 0) {
+                document.getElementById("hasil").innerHTML =
+                    `❌ Salah! Coba lagi. Angka terlalu ${tebakan < angkaBenar ? "kecil" : "besar"}.`;
+            } else {
+                document.getElementById("hasil").innerHTML =
+                    `😢 GAME OVER! Angka yang benar adalah ${angkaBenar}.`;
+                disableGame();
+            }
+
+            tampilkanKesempatan();
+        }
+
+        function tampilkanKesempatan() {
+            document.getElementById("kesempatan").innerHTML =
+                `Sisa kesempatan: ${sisaKesempatan}`;
+        }
+
+        function disableGame() {
+            document.getElementById("tebakan").disabled = true;
+        }
+
+        function resetGame() {
+            angkaBenar = Math.floor(Math.random() * 10) + 1;
+            sisaKesempatan = 3;
+            document.getElementById("tebakan").disabled = false;
+            document.getElementById("tebakan").value = "";
+            document.getElementById("hasil").innerHTML = "";
+            tampilkanKesempatan();
+        }
+
+//Tantangan terbesar saya adalah memahami bagaimana cara menghubungkan kode JavaScript dengan elemen HTML. Awalnya saya bingung bagaimana mengambil nilai dari input, menampilkan hasil ke layar, dan membuat fungsi berjalan saat tombol ditekan. Saya juga agak kesulitan membuat logika percabangan untuk mengecek apakah tebakan benar, terlalu besar, atau terlalu kecil. Selain itu, error kecil seperti typo membuat hasil tidak muncul, jadi saya harus teliti saat menulis kode.
+//banyakk
+  </script>
+
+</body>
+</html>
